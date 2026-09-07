@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+<<<<<<< HEAD
+=======
+import 'package:riverpod_learning/basic_provider/basic_provider_screen.dart';
+>>>>>>> b0da32e (provider)
 import 'package:riverpod_learning/widgets%20/navigation_button.dart';
 
 void main() {
@@ -16,7 +20,14 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.deepPurple)),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
+<<<<<<< HEAD
       routes: {},
+=======
+      routes: {
+        BasicProviderScreen.routePath: (BuildContext context) =>
+            BasicProviderScreen(),
+      },
+>>>>>>> b0da32e (provider)
     );
   }
 }
@@ -42,7 +53,18 @@ class _MyHomePageState extends State<MyHomePage> {
       body: SafeArea(
         child: ListView(
           shrinkWrap: true,
+<<<<<<< HEAD
           children: [NavigationButton(onPressed: () {}, destination: "Basic")],
+=======
+          children: [
+            NavigationButton(
+              onPressed: () {
+                Navigator.pushNamed(context, BasicProviderScreen.routePath);
+              },
+              destination: "Basic",
+            ),
+          ],
+>>>>>>> b0da32e (provider)
         ),
       ),
     );
