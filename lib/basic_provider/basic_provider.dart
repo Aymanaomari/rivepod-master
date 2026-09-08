@@ -7,17 +7,17 @@ String basicProvider(BasicProviderRef ref) {
   return "Hello Riverpod";
 }
 
-// Auto Dispose Provider
-@Riverpod(keepAlive: false)
-String autoDisProvider(AutoDisProviderRef ref) {
-  ref.onDispose(() {
-    print("AutoDisProvider has been disposed");
-  });
-  return "Hello AutoDispose Riverpod";
-}
+// // Auto Dispose Provider
+// @Riverpod(keepAlive: false)
+// String autoDisProvider(AutoDisProviderRef ref) {
+//   ref.onDispose(() {
+//     print("AutoDisProvider has been disposed");
+//   });
+//   return "Hello AutoDispose Riverpod";
+// }
 
-/// Family Provider
-@Riverpod(keepAlive: true)
-String familyProvider(FamilyProviderRef ref, {required String name}) {
-  return "Hello $name";
-}
+// /// Family Provider
+// @Riverpod(keepAlive: true)
+// String familyProvider(FamilyProviderRef ref, {required String name}) {
+//   return "Hello $name";
+// }

@@ -9,7 +9,7 @@ class BasicProviderScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final name = ref.watch<String>(autoDisProviderProvider);
+    final name = ref.watch<String>(basicProviderProvider);
 
     return Scaffold(body: Center(child: Text(name)));
   }
