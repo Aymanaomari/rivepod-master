@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_learning/basic_provider/basic_provider_screen.dart';
+import 'package:riverpod_learning/state_provider/state_provider_page.dart';
 import 'package:riverpod_learning/widgets%20/navigation_button.dart';
 
 void main() {
@@ -20,6 +21,8 @@ class MyApp extends StatelessWidget {
       routes: {
         BasicProviderScreen.routePath: (BuildContext context) =>
             BasicProviderScreen(),
+        StateProviderPage.routePath: (BuildContext context) =>
+            StateProviderPage(),
       },
     );
   }
@@ -46,12 +49,20 @@ class _MyHomePageState extends State<MyHomePage> {
       body: SafeArea(
         child: ListView(
           shrinkWrap: true,
+
           children: [
             NavigationButton(
               onPressed: () {
                 Navigator.pushNamed(context, BasicProviderScreen.routePath);
               },
               destination: "Basic",
+            ),
+            SizedBox(height: 24),
+            NavigationButton(
+              onPressed: () {
+                Navigator.pushNamed(context, StateProviderPage.routePath);
+              },
+              destination: "State",
             ),
           ],
         ),

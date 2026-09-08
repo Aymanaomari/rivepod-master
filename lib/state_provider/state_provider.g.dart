@@ -1,27 +1,27 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'basic_provider.dart';
+part of 'state_provider.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$basicProviderHash() => r'11988617955aabd29fea461cf7223b582b31d0d1';
+String _$ageHash() => r'4558d96a65d62ee4e202f47008175f60c1a3b19a';
 
-/// See also [basicProvider].
-@ProviderFor(basicProvider)
-final basicProviderProvider = Provider<String>.internal(
-  basicProvider,
-  name: r'basicProviderProvider',
+/// See also [age].
+@ProviderFor(age)
+final ageProvider = Provider<String>.internal(
+  age,
+  name: r'ageProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
-      : _$basicProviderHash,
+      : _$ageHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
-typedef BasicProviderRef = ProviderRef<String>;
+typedef AgeRef = ProviderRef<String>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package
