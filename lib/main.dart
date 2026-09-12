@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_learning/async_notifier_provider/users_list_page.dart';
 import 'package:riverpod_learning/widgets%20/navigation_button.dart';
 
 void main() {
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.deepPurple)),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
-      routes: {},
+      routes: {UsersListPage.routePath: (_) => const UsersListPage()},
     );
   }
 }
@@ -42,7 +43,13 @@ class _MyHomePageState extends State<MyHomePage> {
       body: SafeArea(
         child: ListView(
           shrinkWrap: true,
-          children: [NavigationButton(onPressed: () {}, destination: "Basic")],
+          children: [
+            NavigationButton(
+              onPressed: () =>
+                  Navigator.pushNamed(context, UsersListPage.routePath),
+              destination: 'Users',
+            ),
+          ],
         ),
       ),
     );
