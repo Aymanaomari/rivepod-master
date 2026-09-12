@@ -31,17 +31,15 @@ class _UsersPageState extends ConsumerState<UsersPage> {
           ),
         ],
       ),
-      body: switch (userState.status) {
-        UserProviderStatus.idle || UserProviderStatus.loading => const Center(
-          child: CircularProgressIndicator(),
-        ),
-        UserProviderStatus.fail => Center(child: Text(userState.errorMessage)),
-        UserProviderStatus.success => ListView.separated(
+      body: userState.when(
+        loading: () => const Center(child: CircularProgressIndicator()),
+        fail: (errorMessage) => Center(child: Text(errorMessage)),
+        success: (users) => ListView.separated(
           padding: const EdgeInsets.all(16),
-          itemCount: userState.users.length,
+          itemCount: users.length,
           separatorBuilder: (_, index) => const Divider(),
           itemBuilder: (context, index) {
-            final user = userState.users[index];
+            final user = users[index];
             return ListTile(
               leading: CircleAvatar(child: Text('${user.id}')),
               title: Text(user.name),
@@ -50,7 +48,7 @@ class _UsersPageState extends ConsumerState<UsersPage> {
             );
           },
         ),
-      },
+      ),
     );
   }
 }

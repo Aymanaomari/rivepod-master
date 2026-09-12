@@ -63,16 +63,24 @@ class _SystemHash {
   }
 }
 
-/// See also [familyProvider].
+/// Family Provider
+///
+/// Copied from [familyProvider].
 @ProviderFor(familyProvider)
 const familyProviderProvider = FamilyProviderFamily();
 
-/// See also [familyProvider].
+/// Family Provider
+///
+/// Copied from [familyProvider].
 class FamilyProviderFamily extends Family<String> {
-  /// See also [familyProvider].
+  /// Family Provider
+  ///
+  /// Copied from [familyProvider].
   const FamilyProviderFamily();
 
-  /// See also [familyProvider].
+  /// Family Provider
+  ///
+  /// Copied from [familyProvider].
   FamilyProviderProvider call({required String name}) {
     return FamilyProviderProvider(name: name);
   }
@@ -99,9 +107,13 @@ class FamilyProviderFamily extends Family<String> {
   String? get name => r'familyProviderProvider';
 }
 
-/// See also [familyProvider].
+/// Family Provider
+///
+/// Copied from [familyProvider].
 class FamilyProviderProvider extends Provider<String> {
-  /// See also [familyProvider].
+  /// Family Provider
+  ///
+  /// Copied from [familyProvider].
   FamilyProviderProvider({required String name})
     : this._internal(
         (ref) => familyProvider(ref as FamilyProviderRef, name: name),

@@ -14,19 +14,16 @@ class UsersProvider extends _$UsersProvider {
     Future.microtask(loadData);
     ref.listen(counterProvider, (previous, next) {
       if (next > 3) {
-        state = state.copyWith(
-          status: UserProviderStatus.fail,
-          errorMessage: 'Counter exceeded 3',
-        );
+        state = UserProviderStateFail(errorMessage: 'Counter exceeded 3');
         return;
       }
       loadData();
     });
-    return UserProviderState.initial();
+    return UserProviderStateLoading();
   }
 
   Future<void> loadData() async {
-    state = state.copyWith(status: UserProviderStatus.loading);
+    state = UserProviderStateLoading();
 
     try {
       final dio = ref.read(dioProvider);
@@ -37,23 +34,14 @@ class UsersProvider extends _$UsersProvider {
             .map((json) => User.fromJson(json as Map<String, dynamic>))
             .toList();
 
-        state = state.copyWith(
-          status: UserProviderStatus.success,
-          users: users,
-        );
+        state = UserProviderStateSuccess(users: users);
         ref.keepAlive();
         return;
       }
 
-      state = state.copyWith(
-        status: UserProviderStatus.fail,
-        errorMessage: 'Failed to load data',
-      );
+      state = UserProviderStateFail(errorMessage: 'Failed to load data');
     } catch (error) {
-      state = state.copyWith(
-        status: UserProviderStatus.fail,
-        errorMessage: error.toString(),
-      );
+      state = UserProviderStateFail(errorMessage: error.toString());
     }
   }
 }
