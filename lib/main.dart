@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_learning/first_weather/first_weather_page.dart';
 import 'package:riverpod_learning/widgets%20/navigation_button.dart';
 
 void main() {
@@ -16,7 +17,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.deepPurple)),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
-      routes: {},
+      routes: {
+        FirstWeatherPage.routePath: (_) => const FirstWeatherPage(),
+      },
     );
   }
 }
@@ -42,7 +45,15 @@ class _MyHomePageState extends State<MyHomePage> {
       body: SafeArea(
         child: ListView(
           shrinkWrap: true,
-          children: [NavigationButton(onPressed: () {}, destination: "Basic")],
+          children: [
+            NavigationButton(
+              onPressed: () => Navigator.pushNamed(
+                context,
+                FirstWeatherPage.routePath,
+              ),
+              destination: 'First weather',
+            ),
+          ],
         ),
       ),
     );
